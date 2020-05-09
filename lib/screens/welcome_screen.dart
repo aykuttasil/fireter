@@ -1,3 +1,5 @@
+import 'package:animated_text_kit/animated_text_kit.dart';
+import 'package:flash_chat/components/rounded_button.dart';
 import 'package:flutter/material.dart';
 
 import 'login_screen.dart';
@@ -12,38 +14,51 @@ class WelcomeScreen extends StatefulWidget {
 
 class _WelcomeScreenState extends State<WelcomeScreen>
     with SingleTickerProviderStateMixin {
-  AnimationController animationController;
+  AnimationController controller;
   Animation animation;
   Animation animation1;
+  Animation animation2;
 
   @override
   void initState() {
     super.initState();
-    animationController = AnimationController(
-        duration: Duration(seconds: 1), vsync: this, upperBound: 1);
+    controller =
+        AnimationController(duration: Duration(seconds: 2), vsync: this);
 
     animation =
-        CurvedAnimation(parent: animationController, curve: Curves.easeIn);
+        CurvedAnimation(parent: controller, curve: Curves.easeInOutExpo);
 
-    animation1 = ColorTween().animate(animationController);
+    animation1 = ColorTween(begin: Colors.blue, end: Colors.cyanAccent)
+        .animate(animation);
 
-    animationController.addListener(() {
-      setState(() {
-        if (animationController.status == AnimationStatus.completed) {
-          animationController.reverse();
-        } else if (animationController.status == AnimationStatus.dismissed) {
-          animationController.forward();
-        }
-      });
+    animation2 = Tween(begin: 10.0, end: 45.0).animate(animation);
+
+    controller.addListener(() {
+      setState(() {});
+      // print(animation2.value);
     });
 
-    animationController.forward();
+    controller.addStatusListener((status) {
+      if (controller.status == AnimationStatus.completed) {
+        controller.reverse();
+      } else if (controller.status == AnimationStatus.dismissed) {
+        controller.forward();
+      }
+    });
+
+    controller.forward();
+  }
+
+  @override
+  void dispose() {
+    controller.dispose();
+    super.dispose();
   }
 
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      backgroundColor: Colors.white,
+      backgroundColor: animation1.value,
       body: Padding(
         padding: EdgeInsets.symmetric(horizontal: 24.0),
         child: Column(
@@ -56,14 +71,17 @@ class _WelcomeScreenState extends State<WelcomeScreen>
                   tag: 'logo',
                   child: Container(
                     child: Image.asset('images/logo.png'),
-                    height: animation.value * 50,
+                    height: 50,
                   ),
                 ),
-                Text(
-                  'Flash Chat',
-                  style: TextStyle(
+                TypewriterAnimatedTextKit(
+                  totalRepeatCount: 10,
+                  isRepeatingAnimation: true,
+                  speed: Duration(milliseconds: 200),
+                  text: ['Flash Chat'],
+                  textStyle: TextStyle(
                     color: Colors.black,
-                    fontSize: 45.0,
+                    fontSize: 35,
                     fontWeight: FontWeight.w900,
                   ),
                 ),
@@ -72,41 +90,19 @@ class _WelcomeScreenState extends State<WelcomeScreen>
             SizedBox(
               height: 48.0,
             ),
-            Padding(
-              padding: EdgeInsets.symmetric(vertical: 16.0),
-              child: Material(
-                elevation: 5.0,
-                color: Colors.lightBlueAccent,
-                borderRadius: BorderRadius.circular(30.0),
-                child: MaterialButton(
-                  onPressed: () {
-                    Navigator.pushNamed(context, LoginScreen.id);
-                  },
-                  minWidth: 200.0,
-                  height: 42.0,
-                  child: Text(
-                    'Log In',
-                  ),
-                ),
-              ),
+            RoundedButton(
+              text: 'Log In',
+              onPressed: () {
+                Navigator.pushNamed(context, LoginScreen.id);
+              },
+              color: Colors.lightBlueAccent,
             ),
-            Padding(
-              padding: EdgeInsets.symmetric(vertical: 16.0),
-              child: Material(
-                color: Colors.blueAccent,
-                borderRadius: BorderRadius.circular(30.0),
-                elevation: 5.0,
-                child: MaterialButton(
-                  onPressed: () {
-                    Navigator.pushNamed(context, RegistrationScreen.id);
-                  },
-                  minWidth: 200.0,
-                  height: 42.0,
-                  child: Text(
-                    'Register',
-                  ),
-                ),
-              ),
+            RoundedButton(
+              text: 'Register',
+              onPressed: () {
+                Navigator.pushNamed(context, RegistrationScreen.id);
+              },
+              color: Colors.blueAccent,
             ),
           ],
         ),

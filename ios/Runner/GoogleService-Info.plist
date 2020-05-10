@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>CLIENT_ID</key>
+	<string>636903349648-0i87noq1jd311ijsoa5nr54iknbmn0am.apps.googleusercontent.com</string>
+	<key>REVERSED_CLIENT_ID</key>
+	<string>com.googleusercontent.apps.636903349648-0i87noq1jd311ijsoa5nr54iknbmn0am</string>
+	<key>API_KEY</key>
+	<string>AIzaSyAe7AySypSG49K_b2H2bfbZWC6-mjF4-Bw</string>
+	<key>GCM_SENDER_ID</key>
+	<string>636903349648</string>
+	<key>PLIST_VERSION</key>
+	<string>1</string>
+	<key>BUNDLE_ID</key>
+	<string>com.aykuttasil.fireter</string>
+	<key>PROJECT_ID</key>
+	<string>fireter</string>
+	<key>STORAGE_BUCKET</key>
+	<string>fireter.appspot.com</string>
+	<key>IS_ADS_ENABLED</key>
+	<false></false>
+	<key>IS_ANALYTICS_ENABLED</key>
+	<false></false>
+	<key>IS_APPINVITE_ENABLED</key>
+	<true></true>
+	<key>IS_GCM_ENABLED</key>
+	<true></true>
+	<key>IS_SIGNIN_ENABLED</key>
+	<true></true>
+	<key>GOOGLE_APP_ID</key>
+	<string>1:636903349648:ios:d68b6342173ea469aaa715</string>
+	<key>DATABASE_URL</key>
+	<string>https://fireter.firebaseio.com</string>
+</dict>
+</plist>

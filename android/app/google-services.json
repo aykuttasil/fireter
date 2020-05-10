@@ -1,0 +1,40 @@
+{
+  "project_info": {
+    "project_number": "636903349648",
+    "firebase_url": "https://fireter.firebaseio.com",
+    "project_id": "fireter",
+    "storage_bucket": "fireter.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:636903349648:android:78b383a2214a9238aaa715",
+        "android_client_info": {
+          "package_name": "com.aykuttasil.fireter"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "636903349648-pfmu3oo4q9uhrja9frdaikhejbaekov2.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyBk6Efq2FV9D3Ecc0f9BXFzMeZ_SOPYG1A"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "636903349648-pfmu3oo4q9uhrja9frdaikhejbaekov2.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
